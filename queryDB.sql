@@ -55,7 +55,7 @@ GROUP BY
 HAVING
     SUM(matakuliah.sks) > 10;
 
--- Tampilkan mahasiswa yang mengambil mata kuliah 'Data Mining'
+-- Tampilkan mahasiswa yang mengambil mata kuliah 'data mining'
 SELECT
     mahasiswa.nim,
     mahasiswa.nama,
@@ -65,7 +65,7 @@ FROM
     JOIN mahasiswa_matakuliah ON mahasiswa.nim = mahasiswa_matakuliah.nim_mahasiswa
     JOIN matakuliah ON mahasiswa_matakuliah.id_matakuliah = matakuliah.id
 WHERE
-    matakuliah.nama = 'Data Mining';
+    matakuliah.nama = 'data mining';
 
 -- Tampilkan jumlah mahasiswa untuk setiap dosen
 SELECT
@@ -81,11 +81,13 @@ GROUP BY
 
 -- urutkan mahasiswa berdasarkan umurnya
 SELECT
-    *
+    nim,
+    nama,
+    umur
 FROM
     mahasiswa
 ORDER BY
-    umur ASC;
+    umur DESC / ASC;
 
 -- tampilkan kontrak matakuliah yang harus diulangi(nilai D dan E), serta tampilkan data mahasiswa jurusan dan dosen secara lengkap. gunakan mode JOIN dan WHERE clause (solusi terdiri dari 2 sytanx SQL)
 -- Query 1: Menggunakan JOIN
