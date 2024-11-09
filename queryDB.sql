@@ -55,7 +55,9 @@ GROUP BY
 HAVING
     SUM(matakuliah.sks) > 10;
 
--- Tampilkan mahasiswa yang mengambil mata kuliah 'data mining'
+-- Tampilkan mahasiswa yang mengontrak mata kuliah 'data mining'
+
+
 SELECT
     mahasiswa.nim,
     mahasiswa.nama,
@@ -65,7 +67,7 @@ FROM
     JOIN mahasiswa_matakuliah ON mahasiswa.nim = mahasiswa_matakuliah.nim_mahasiswa
     JOIN matakuliah ON mahasiswa_matakuliah.id_matakuliah = matakuliah.id
 WHERE
-    matakuliah.nama = 'data mining';
+    matakuliah.nama LIKE '%data mining%';
 
 -- Tampilkan jumlah mahasiswa untuk setiap dosen
 SELECT
