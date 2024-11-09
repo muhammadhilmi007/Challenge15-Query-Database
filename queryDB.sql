@@ -83,11 +83,13 @@ GROUP BY
 SELECT
     nim,
     nama,
-    umur
+    (strftime ('%Y', 'now') - strftime ('%Y', umur)) - (
+        strftime ('%m-%d', 'now') < strftime ('%m-%d', umur)
+    ) as umur
 FROM
     mahasiswa
 ORDER BY
-    umur DESC / ASC;
+    umur ASC / DESC;
 
 -- tampilkan kontrak matakuliah yang harus diulangi(nilai D dan E), serta tampilkan data mahasiswa jurusan dan dosen secara lengkap. gunakan mode JOIN dan WHERE clause (solusi terdiri dari 2 sytanx SQL)
 -- Query 1: Menggunakan JOIN
